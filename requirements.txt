@@ -1,0 +1,6 @@
+Flask>=3.0.3
+Flask-MySQLdb>=2.0.0
+mysqlclient>=2.2.5
+mysql-connector-python
+waitress
+reportlab

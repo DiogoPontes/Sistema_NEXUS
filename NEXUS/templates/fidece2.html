@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Eventos - CML</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+        body {
+            // background: url("{{ url_for('static', filename='fundo.png') }}") no-repeat center center fixed;
+            background-color: #556b2f;
+        }
+
+
+        .form-container {
+            max-width: 700px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.70); /* cor + transparência */
+
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+
+        .form-label span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h4 class="mb-3">Ficha Descritiva de Eventos de Comunicação Estratégica no CML (FIDECE)<br>Formulário de Eventos</h4>
+
+        <form method="POST">
+
+            <div class="mb-4">
+                <a href="{{ url_for('tabela_mpce') }}" class="btn btn-secondary">CONSULTA DO NÚMERO DO EVENTO</a>
+            </div>
+
+            <!-- Número do evento -->
+            <div class="mb-4">
+                <label class="form-label"><strong>Número do Evento: <span>*</span></strong></label><br>
+                <small>
+                    Digite o Número do Evento constante na Matriz de Eventos de Comunicação Estratégica (MECE)<br>
+                    (somente números, sem espaço). Ex: 35<br>
+                </small>
+                <input type="number" class="form-control" name="numero_evento" pattern="[0-9]" maxlength="11" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">
+                    <strong>LINK DO LOCAL DE REALIZAÇÃO (INSTALAÇÕES, ENDEREÇOS, LOCALIDADES, CIDADES, PAÍSES) <span class="text-danger">*</span></strong><br>
+                    <small class="text-muted">
+                        (insira apenas o link do Google Maps, indicando o local exato do evento. Ex:
+                        <a href="https://maps.app.goo.gl/c4qzA4SbZNw64dCv9" target="_blank">
+                            https://maps.app.goo.gl/c4qzA4SbZNw64dCv9
+                        </a>)
+                    </small>
+                </label>
+                <input type="url" class="form-control" name="link_localizacao" placeholder="Cole o link do Google Maps aqui" required>
+            </div>
+
+            <!-- SITUAÇÃO DO EVENTO PRINCIPAL -->
+            <div class="mb-4">
+                <label class="form-label"><strong>Indique a situação do evento PRINCIPAL: <span>*</span></strong></label>
+                <select class="form-select" name="situacao_evento" required>
+                    <option value="">Escolher</option>
+                    {% for evento_principal in eventos_principais %}
+                    <option value="{{ evento_principal }}">{{ evento_principal }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- DESCRIÇÃO SUCINTA -->
+            <div class="mb-4">
+                <label class="form-label"><strong>Descrição sucinta do evento:</strong><br><small>Quem participou, como ocorreu, sequelas e/ou projeções (máximo 100 caracteres)</small></label>
+                <textarea class="form-control" name="descricao_evento" rows="4" maxlength="100" required></textarea>
+            </div>
+
+            <!-- DATA DO EVENTO -->
+            <div class="mb-4">
+                <label class="form-label"><strong>Data do Evento ou 1º dia de Ocorrência: <span>*</span></strong></label>
+                <input type="date" class="form-control" name="data_evento" required>
+            </div>
+
+            <!-- MUNICÍPIO PRINCIPAL -->
+            <div class="mb-4">
+                <label class="form-label"><strong>Município nº 1 – cidade principal do evento: <span>*</span></strong></label>
+                <select class="form-select" name="municipio_evento" required>
+                    <option value="">Escolher</option>
+                    {% for cidade in cidades %}
+                    <option value="{{ cidade }}">{{ cidade }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- MUNICÍPIO PRINCIPAL 2
+    <div class="mb-4">
+        <label class="form-label"><strong>Município nº 2 – cidade principal do evento (SFC, evento em mais de 1 município): <span>*</span></strong></label>
+        <select class="form-select" name="municipio_evento2">
+            <option value="">Escolher</option>
+            {% for cidade in cidades %}
+            <option value="{{ cidade }}">{{ cidade }}</option>
+            {% endfor %}
+        </select>
+    </div>-->
+            <!-- MUNICÍPIO PRINCIPAL 3
+    <div class="mb-4">
+        <label class="form-label"><strong>Município nº 3 – cidade principal do evento (SFC, evento em mais de 2 município): <span>*</span></strong></label>
+        <select class="form-select" name="municipio_evento3">
+            <option value="">Escolher</option>
+            {% for cidade in cidades %}
+            <option value="{{ cidade }}">{{ cidade }}</option>
+            {% endfor %}
+        </select>
+    </div>-->
+            
+
+            <!-- MUNICÍPIO PRINCIPAL 4
+    <div class="mb-4">
+        <label class="form-label"><strong>Município nº 4 – cidade principal do evento (SFC, evento em mais de 3 município): <span>*</span></strong></label>
+        <select class="form-select" name="municipio_evento4">
+            <option value="">Escolher</option>
+            {% for cidade in cidades %}
+            <option value="{{ cidade }}">{{ cidade }}</option>
+            {% endfor %}
+        </select>
+    </div>-->
+            
+
+            <!-- MUNICÍPIO PRINCIPAL 5
+    <div class="mb-4">
+        <label class="form-label"><strong>Município nº 5 – cidade principal do evento (SFC, evento em mais de 4 município): <span>*</span></strong></label>
+        <select class="form-select" name="municipio_evento5">
+            <option value="">Escolher</option>
+            {% for cidade in cidades %}
+            <option value="{{ cidade }}">{{ cidade }}</option>
+            {% endfor %}
+        </select>
+    </div>-->
+            
+
+
+            <div class="d-flex justify-content-between mt-4">
+                <!-- Botão Voltar -->
+                <a href="{{ url_for('fidece1') }}" class="btn btn-secondary">Voltar</a>
+
+                <!-- Botão Avançar (submete o formulário) -->
+                <button type="submit" class="btn btn-primary">Avançar</button>
+            </div>
+
+
+        </form>
+    </div>
+
+
+    {% if erro %}
+    <div class="alert alert-danger">{{ erro }}</div>
+    {% endif %}

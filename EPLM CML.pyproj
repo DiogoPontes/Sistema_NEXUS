@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>2814813a-dcad-4a53-8a3f-72f1252f95b2</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{789894c7-04a9-4a11-a6b5-3f4435165112};{1b580a1a-fdb3-4b32-83e1-6407eb2722e6};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>runserver.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <LaunchProvider>Web launcher</LaunchProvider>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <OutputPath>.</OutputPath>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
+    <Name>EPLM CML</Name>
+    <RootNamespace>EPLM CML</RootNamespace>
+    <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="EPLM_CML\conexao.py" />
+    <Compile Include="EPLM_CML\routes\formularios.py" />
+    <Compile Include="EPLM_CML\routes\metricas.py" />
+    <Compile Include="EPLM_CML\routes\relatorios.py" />
+    <Compile Include="EPLM_CML\routes\tabelas.py" />
+    <Compile Include="runserver.py" />
+    <Compile Include="EPLM_CML\__init__.py" />
+    <Compile Include="EPLM_CML\views.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EPLM_CML\" />
+    <Folder Include="EPLM_CML\routes\" />
+    <Folder Include="EPLM_CML\static\" />
+    <Folder Include="EPLM_CML\static\content\" />
+    <Folder Include="EPLM_CML\static\fonts\" />
+    <Folder Include="EPLM_CML\static\css\" />
+    <Folder Include="EPLM_CML\static\scripts\" />
+    <Folder Include="EPLM_CML\templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EPLM_CML\static\css\style.css" />
+    <Content Include="EPLM_CML\templates\fidece1.html" />
+    <Content Include="EPLM_CML\templates\fidece2.html" />
+    <Content Include="EPLM_CML\templates\fidece3.html" />
+    <Content Include="EPLM_CML\templates\fidece4.html" />
+    <Content Include="EPLM_CML\templates\fidece5.html" />
+    <Content Include="EPLM_CML\templates\form2.html" />
+    <Content Include="EPLM_CML\templates\form3.html" />
+    <Content Include="EPLM_CML\templates\form4.html" />
+    <Content Include="EPLM_CML\templates\form5.html" />
+    <Content Include="EPLM_CML\templates\form_avaliacao_resultado.html" />
+    <Content Include="EPLM_CML\templates\form_editar_fidece.html" />
+    <Content Include="EPLM_CML\templates\form_editar_mpce.html" />
+    <Content Include="EPLM_CML\templates\form_feedback.html" />
+    <Content Include="EPLM_CML\templates\form_fidece.html" />
+    <Content Include="EPLM_CML\templates\form_manifestacao.html" />
+    <Content Include="EPLM_CML\templates\form_mece.html" />
+    <Content Include="EPLM_CML\templates\form_resultado_feedback.html" />
+    <Content Include="EPLM_CML\templates\login.html" />
+    <Content Include="EPLM_CML\templates\menu.html" />
+    <Content Include="EPLM_CML\templates\metrica_numero_eventos.html" />
+    <Content Include="requirements.txt" />
+    <Content Include="EPLM_CML\static\content\bootstrap.css" />
+    <Content Include="EPLM_CML\static\content\bootstrap.min.css" />
+    <Content Include="EPLM_CML\static\content\site.css" />
+    <Content Include="EPLM_CML\static\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="EPLM_CML\static\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="EPLM_CML\static\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="EPLM_CML\static\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="EPLM_CML\static\scripts\bootstrap.js" />
+    <Content Include="EPLM_CML\static\scripts\bootstrap.min.js" />
+    <Content Include="EPLM_CML\static\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="EPLM_CML\static\scripts\jquery-1.10.2.js" />
+    <Content Include="EPLM_CML\static\scripts\jquery-1.10.2.min.js" />
+    <Content Include="EPLM_CML\static\scripts\jquery-1.10.2.min.map" />
+    <Content Include="EPLM_CML\static\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="EPLM_CML\static\scripts\jquery.validate.js" />
+    <Content Include="EPLM_CML\static\scripts\jquery.validate.min.js" />
+    <Content Include="EPLM_CML\static\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="EPLM_CML\static\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="EPLM_CML\static\scripts\modernizr-2.6.2.js" />
+    <Content Include="EPLM_CML\static\scripts\respond.js" />
+    <Content Include="EPLM_CML\static\scripts\respond.min.js" />
+    <Content Include="EPLM_CML\static\scripts\_references.js" />
+    <Content Include="EPLM_CML\templates\about.html" />
+    <Content Include="EPLM_CML\templates\contact.html" />
+    <Content Include="EPLM_CML\templates\index.html" />
+    <Content Include="EPLM_CML\templates\layout.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

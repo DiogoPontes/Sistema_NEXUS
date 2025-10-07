@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NEXUS – Editar FIDECE</title>
+
+  <!-- Bootstrap + FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-hero:#0f2a1e;
+      --bg-hero-2:#0c2219;
+      --gold:#d6b36b;
+      --gold-strong:#caa458;
+      --text:#e9edd6;
+      --muted:#c9d3cd;
+      --card-border:rgba(214,179,107,.18);
+      --card-border-2:rgba(214,179,107,.28);
+      --field:#0f2a1e;
+      --field-border:#2f4a3f;
+      --field-focus:#4b7d66;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:24px;
+    }
+
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 700px at 50% -200px, var(--bg-hero-2), transparent 70%),
+        radial-gradient(900px 600px at -200px 100%, #0b2018, transparent 60%),
+        radial-gradient(900px 600px at 120% 80%, #0b2018, transparent 60%),
+        var(--bg-hero);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      display:flex; flex-direction:column;
+    }
+
+    /* Header */
+    .nx-header{
+      border-bottom:1px solid var(--card-border);
+      backdrop-filter: blur(2px);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.0));
+    }
+    .brand-mini{display:flex; align-items:center; gap:12px; color:var(--gold); font-weight:800; letter-spacing:.06em; text-transform:uppercase;}
+    .brand-mini svg{width:34px; height:auto; color:var(--gold)}
+    .user-chip{color:var(--text); font-weight:700; background: rgba(255,255,255,.06); border:1px solid var(--card-border); border-radius:999px; padding:8px 14px; display:flex; align-items:center; gap:8px;}
+    .btn-logout{border:1px solid var(--gold); color:var(--gold); background:transparent; padding:8px 14px; border-radius:12px; font-weight:800;}
+    .btn-logout:hover{background:rgba(214,179,107,.12); color:#0d130f}
+
+    /* Shell */
+    .shell{
+      width:min(1000px, 96vw);
+      margin: 34px auto 28px;
+      padding: 28px 24px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+      border:1px solid var(--card-border);
+      box-shadow: var(--shadow);
+    }
+
+    .page-title{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px;}
+    .page-title h4{margin:0; color:var(--gold); font-weight:800}
+    .btn-ghost{border:1px solid var(--gold); color:var(--gold); background:transparent; padding:8px 14px; border-radius:12px; font-weight:800;}
+    .btn-ghost:hover{background:rgba(214,179,107,.12); color:#0d130f}
+
+    /* Cards */
+    .nx-card{
+      background: rgba(255,255,255,.02);
+      border:1px solid var(--card-border);
+      border-radius:16px;
+      box-shadow: var(--shadow);
+      padding:18px 16px;
+      margin-bottom:16px;
+    }
+    .nx-card h6{color:var(--gold); font-weight:800; margin-bottom:12px;}
+
+    /* Campos */
+    .form-control, .form-select, textarea{
+      background: var(--field); border:1px solid var(--field-border); color: var(--text); border-radius:12px;
+    }
+    .form-control:focus, .form-select:focus, textarea:focus{
+      border-color: var(--field-focus);
+      box-shadow: 0 0 0 .2rem rgba(75,125,102,.25);
+      background: var(--field); color: var(--text);
+    }
+    .form-label{font-weight:700}
+    .readonly{
+      background: rgba(255,255,255,.04) !important;
+      border-color: var(--card-border) !important;
+      color: var(--text) !important;
+    }
+
+    /* Tabelas */
+    .table{--bs-table-bg: rgba(255,255,255,.02); color: var(--text); border-color: var(--card-border);}
+    .table-bordered>:not(caption)>*{border-color: var(--card-border)}
+    .table-striped>tbody>tr:nth-of-type(odd)>*{background-color: rgba(255,255,255,.015)}
+    .table thead th{
+      background-color: var(--gold) !important;
+      color: #0d130f !important;
+      border-color: rgba(13,19,15,.25) !important;
+    }
+
+    /* Botões */
+    .btn-gold{background: var(--gold); color:#0d130f; font-weight:800; border:none; padding:10px 14px; border-radius:12px; text-transform:uppercase;}
+    .btn-gold:hover{background: var(--gold-strong)}
+    .btn-outline{background: transparent; color: var(--text); border:1px solid var(--card-border); padding:10px 14px; border-radius:12px; font-weight:700;}
+    .btn-outline:hover{border-color: var(--card-border-2); background: rgba(255,255,255,.05)}
+    .btn-ghost-sm{border:1px solid var(--gold); color:var(--gold); background:transparent; padding:6px 12px; border-radius:10px; font-weight:800;}
+
+    .footer{margin: 8px auto 30px; text-align:center; color:var(--muted); font-size:13px;}
+  </style>
+</head>
+<body>
+
+  <!-- ====== SVG LOGO ====== -->
+  <svg style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="nx-logo">
+    <g fill="currentColor">
+      <path d="M128 236c-49.5-18.2-82-49.6-92.7-66.8C28 156.1 24 141.9 24 120.4V56.5c0-4.2 3-7.9 7.1-8.7 35-6.9 64.5-18.9 89.7-35.9a10 10 0 0 1 10.4 0c25.2 17 54.7 29 89.7 35.9 4.1.8 7.1 4.5 7.1 8.7v63.9c0 21.5-4 35.7-11.3 48.8C210 186.4 177.5 217.8 128 236Z"/>
+      <path fill="#0f2a1e" d="M128 206l-34-92h22l12 34 12-34h22l-34 92z"/>
+      <rect x="124" y="76" width="8" height="42" fill="#0f2a1e"/>
+      <path fill="#0f2a1e" d="M128 42l7.8 16 17.6 2.2-12.8 11.6 3.6 17.9L128 80l-16.2 9.7 3.6-17.9-12.8-11.6 17.6-2.2 7.8-16z"/>
+      <path fill="#0f2a1e" d="M92 120a36 36 0 0 1 16-30l6 9a24 24 0 0 0-10 21h-12Zm-18 0a54 54 0 0 1 24-45l6 9a42 42 0 0 0-18 36h-12Zm-18 0a72 72 0 0 1 32-60l6 9a60 60 0 0 0-27 51h-11Z"/>
+      <path fill="#0f2a1e" d="M164 120h-12a24 24 0 0 0-10-21l6-9a36 36 0 0 1 16 30Zm18 0h-12a42 42 0 0 0-18-36l6-9a54 54 0 0 1 24 45Zm18 0h-11a60 60 0 0 0-27-51l6-9a72 72 0 0 1 32 60Z"/>
+    </g>
+  </svg>
+
+  <!-- ====== HEADER ====== -->
+  <header class="nx-header py-3">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="brand-mini">
+        <svg viewBox="0 0 256 256"><use href="#nx-logo"></use></svg>
+        <span>NEXUS</span>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <div class="user-chip">
+          <i class="fa-solid fa-user-shield"></i>
+          {{ session['perfil'] }}
+        </div>
+        <a href="{{ url_for('logout') }}" class="btn btn-logout">
+          <i class="fas fa-sign-out-alt me-1"></i> Sair
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== CONTEÚDO ====== -->
+  <main class="shell">
+    <div class="page-title">
+      <h4>Editar Ficha Descritiva de Eventos de Comunicação Estratégica</h4>
+      <a href="{{ url_for('menu') }}" class="btn-ghost">
+        <i class="fas fa-arrow-left me-1"></i> Início
+      </a>
+    </div>
+
+    <form method="POST">
+      <!-- Informações do evento (somente leitura) -->
+      <div class="nx-card">
+        <h6>Informações do Evento</h6>
+        <div class="mb-3">
+          <label class="form-label">Ações de Comunicação Estratégica</label>
+          <textarea class="form-control readonly" rows="4" readonly>{{ mpce.acao_descricao or '' }}</textarea>
+        </div>
+        <div class="mb-0">
+          <label class="form-label">Vetor a Atuar</label>
+          <textarea class="form-control readonly" rows="2" readonly>{{ mpce.vetor_descricao or '' }}</textarea>
+        </div>
+      </div>
+
+      <!-- Resultados Pretendidos -->
+      <div class="nx-card">
+        <h6>Resultados Pretendidos</h6>
+        <table class="table table-bordered table-striped align-middle" id="tabelaResultados">
+          <thead class="text-center">
+            <tr>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for resultado in resultados %}
+            <tr>
+              <td>
+                <textarea name="descricao_resultado_{{ loop.index0 }}" class="form-control" rows="2">{{ resultado.descricao }}</textarea>
+                <input type="hidden" name="resultado_id_{{ loop.index0 }}" value="{{ resultado.id }}">
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <input type="hidden" name="total_resultados" value="{{ resultados|length }}">
+      </div>
+
+      <!-- Produtos -->
+      <div class="nx-card">
+        <h6>Produtos</h6>
+        <table class="table table-bordered table-striped align-middle" id="tabelaProdutos">
+          <thead class="text-center">
+            <tr>
+              <th>Descrição</th>
+              <th>Link</th>
+              <th style="width: 120px;">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for produto in produtos %}
+            <tr>
+              <td>
+                <textarea name="descricao_produto_{{ loop.index0 }}" class="form-control" rows="2">{{ produto.descricao }}</textarea>
+                <input type="hidden" name="produto_id_{{ loop.index0 }}" value="{{ produto.id }}">
+              </td>
+              <td>
+                <textarea name="link_produto_{{ loop.index0 }}" class="form-control" rows="2">{{ produto.link }}</textarea>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger btn-sm" onclick="removerLinha2(this)">Remover</button>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <input type="hidden" name="total_produtos" value="{{ produtos|length }}">
+        <button type="button" class="btn-ghost-sm" onclick="adicionarLinha2()">+ Adicionar Produto</button>
+      </div>
+
+      <!-- Ações -->
+      <div class="d-flex justify-content-between mt-3">
+        <button type="button" class="btn btn-outline" onclick="history.back()">Cancelar</button>
+        <button type="submit" class="btn-gold">Salvar</button>
+      </div>
+    </form>
+  </main>
+
+  <div class="footer">Desenvolvido pela Seção de Tecnologia da Informação </div>
+
+  <!-- ====== JS ====== -->
+  <script>
+    function reindexResultados() {
+      const rows = document.querySelectorAll('#tabelaResultados tbody tr');
+      rows.forEach((tr, idx) => {
+        const desc = tr.querySelector('textarea[name^="descricao_resultado_"]');
+        if (desc) desc.setAttribute('name', `descricao_resultado_${idx}`);
+        const hid = tr.querySelector('input[name^="resultado_id_"]');
+        if (hid) hid.setAttribute('name', `resultado_id_${idx}`);
+      });
+      const total = document.querySelector('input[name="total_resultados"]');
+      if (total) total.value = rows.length;
+    }
+
+    function reindexProdutos() {
+      const rows = document.querySelectorAll('#tabelaProdutos tbody tr');
+      rows.forEach((tr, idx) => {
+        const d = tr.querySelector('textarea[name^="descricao_produto_"]');
+        if (d) d.setAttribute('name', `descricao_produto_${idx}`);
+        const l = tr.querySelector('textarea[name^="link_produto_"]');
+        if (l) l.setAttribute('name', `link_produto_${idx}`);
+        const hid = tr.querySelector('input[name^="produto_id_"]');
+        if (hid) hid.setAttribute('name', `produto_id_${idx}`);
+      });
+      const total = document.querySelector('input[name="total_produtos"]');
+      if (total) total.value = rows.length;
+    }
+
+    function adicionarLinha2() {
+      const tbody = document.querySelector("#tabelaProdutos tbody");
+      const tr = tbody.insertRow();
+      tr.innerHTML = `
+        <td>
+          <textarea class="form-control" rows="2" name="descricao_produto_tmp"></textarea>
+          <input type="hidden" value="" name="produto_id_tmp">
+        </td>
+        <td>
+          <textarea class="form-control" rows="2" name="link_produto_tmp"></textarea>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger btn-sm" onclick="removerLinha2(this)">Remover</button>
+        </td>
+      `;
+      reindexProdutos();
+    }
+
+    function removerLinha2(botao) {
+      botao.closest("tr").remove();
+      reindexProdutos();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      reindexResultados();
+      reindexProdutos();
+    });
+  </script>
+</body>
+</html>

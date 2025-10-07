@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Eventos - CML</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+        body {
+            // background: url("{{ url_for('static', filename='fundo.png') }}") no-repeat center center fixed;
+            background-color: #556b2f;
+        }
+
+
+        .form-container {
+            max-width: 700px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.70); /* cor + transparência */
+
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+
+        .form-label span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h4>MECE - Matriz de Eventos de Comunicação Estratégica no CML<br>Formulário de Eventos</h4>
+        <p class="text-danger mt-2"><strong>*</strong> Indica uma pergunta obrigatória</p>
+
+
+        <form method="POST">
+
+            <div class="header-box">
+                <strong>LINHA DE ESFORÇO</strong>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">
+                    Linha de Esforço preponderante no Evento <span>*</span>
+                </label>
+
+                {% for linha in linhas %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="linha_esforco" id="{{ linha }}" value="{{ linha }}" required>
+                    <label class="form-check-label" for="{{ linha }}">{{ linha }}</label>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">
+                    Linha de Esforço secundária, se houver <span>*</span>
+                </label>
+
+                {% for linha2 in linhas %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="linha_esforco2" id="{{ linha2 }}" value="{{ linha2 }}" required>
+                    <label class="form-check-label" for="{{ linha2 }}">{{ linha2 }}</label>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <!-- Botão Voltar -->
+                <a href="{{ url_for('form2') }}" class="btn btn-secondary">Voltar</a>
+
+                <!-- Botão Avançar (submete o formulário) -->
+                <button type="submit" class="btn btn-primary">Avançar</button>
+            </div>
+
+
+        </form>
+    </div>
+
+
+    {% if erro %}
+    <div class="alert alert-danger">{{ erro }}</div>
+    {% endif %}

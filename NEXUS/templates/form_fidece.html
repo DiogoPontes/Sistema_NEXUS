@@ -1,0 +1,551 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NEXUS – FIDECE (Resumo)</title>
+
+  <!-- Bootstrap + FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <!-- DataTables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-hero:#0f2a1e;
+      --bg-hero-2:#0c2219;
+      --gold:#d6b36b;
+      --gold-strong:#caa458;
+      --text:#e9edd6;
+      --muted:#c9d3cd;
+      --card-border:rgba(214,179,107,.18);
+      --card-border-2:rgba(214,179,107,.28);
+      --field:#0f2a1e;
+      --field-border:#2f4a3f;
+      --field-focus:#4b7d66;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:24px;
+    }
+
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 700px at 50% -200px, var(--bg-hero-2), transparent 70%),
+        radial-gradient(900px 600px at -200px 100%, #0b2018, transparent 60%),
+        radial-gradient(900px 600px at 120% 80%, #0b2018, transparent 60%),
+        var(--bg-hero);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      display:flex; flex-direction:column;
+    }
+
+    /* Header */
+    .nx-header{
+      border-bottom:1px solid var(--card-border);
+      backdrop-filter: blur(2px);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.0));
+    }
+    .brand-mini{display:flex; align-items:center; gap:12px; color:var(--gold); font-weight:800; letter-spacing:.06em; text-transform:uppercase;}
+    .brand-mini svg{width:34px; height:auto; color:var(--gold)}
+    .user-chip{color:var(--text); font-weight:700; background: rgba(255,255,255,.06); border:1px solid var(--card-border); border-radius:999px; padding:8px 14px; display:flex; align-items:center; gap:8px;}
+    .btn-logout{border:1px solid var(--gold); color:var(--gold); background:transparent; padding:8px 14px; border-radius:12px; font-weight:800;}
+    .btn-logout:hover{background:rgba(214,179,107,.12); color:#0d130f}
+
+    /* Shell principal (mais largo por causa da tabela) */
+    .shell{
+      width:min(1400px, 96vw);
+      margin: 34px auto 28px;
+      padding: 28px 24px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+      border:1px solid var(--card-border);
+      box-shadow: var(--shadow);
+    }
+
+    .page-title{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px;}
+    .page-title h4{margin:0; color:var(--gold); font-weight:800}
+    .btn-ghost{border:1px solid var(--gold); color:var(--gold); background:transparent; padding:8px 14px; border-radius:12px; font-weight:800;}
+    .btn-ghost:hover{background:rgba(214,179,107,.12); color:#0d130f}
+
+    /* Área de ações (Início + PDF) */
+    .action-stack{display:flex; flex-direction:column; align-items:end; gap:8px}
+    .btn-gold{background: var(--gold); color:#0d130f; font-weight:800; border:none; padding:10px 14px; border-radius:12px; text-transform:uppercase;}
+    .btn-gold:hover{background: var(--gold-strong)}
+
+    /* Filtros */
+    .filter-section{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--card-border);
+      border-radius:16px;
+      padding:16px;
+      margin-bottom:16px;
+    }
+    .filter-label{font-weight:700; margin-bottom:.5rem; display:block; color: var(--text)}
+    .form-check-input{cursor:pointer}
+    .form-check-input:checked{background-color: var(--gold); border-color: var(--gold)}
+    .badge.nx{background: var(--gold); color:#0d130f}
+
+    /* Campos padrão */
+    .form-control, .form-select{
+      background: var(--field); border:1px solid var(--field-border); color: var(--text); border-radius:12px;
+    }
+    .form-control:focus, .form-select:focus{
+      border-color: var(--field-focus);
+      box-shadow: 0 0 0 .2rem rgba(75,125,102,.25);
+      background: var(--field); color: var(--text);
+    }
+
+    /* Tabelas (DataTables) */
+    .table{--bs-table-bg: rgba(255,255,255,.02); color: var(--text); border-color: var(--card-border);}
+    .table thead{background: rgba(214,179,107,.12); color: var(--text)}
+    .table-bordered>:not(caption)>*{border-color: var(--card-border)}
+    .table-striped>tbody>tr:nth-of-type(odd)>*{background-color: rgba(255,255,255,.015)}
+
+    /* DataTables wrappers */
+    .dataTables_wrapper .dataTables_filter{float:right; text-align:right}
+    .dataTables_wrapper .dataTables_paginate{float:right; text-align:right}
+
+    .btn-outline{background: transparent; color: var(--text); border:1px solid var(--card-border); padding:10px 14px; border-radius:12px; font-weight:700;}
+    .btn-outline:hover{border-color: var(--card-border-2); background: rgba(255,255,255,.05)}
+
+    .footer{margin: 8px auto 30px; text-align:center; color:var(--muted); font-size:13px;}
+
+    /* Modais */
+    .modal-content{border:1px solid var(--card-border)}
+    .modal-header.nx{background: var(--bg-hero); color: var(--gold); border-bottom:1px solid var(--card-border)}
+    .modal-footer.nx{background: rgba(255,255,255,.04); border-top:1px solid var(--card-border)}
+
+    /* ==== Texto branco na tabela + UI do DataTables ==== */
+    #tabelaMece, #tabelaMece th, #tabelaMece td{ color:#fff !important; }
+    #tabelaMece tbody td a{ color:#fff !important; text-decoration:underline; }
+
+    .dataTables_wrapper .dataTables_info,
+    .dataTables_wrapper .dataTables_length label,
+    .dataTables_wrapper .dataTables_filter label,
+    .dataTables_wrapper .dataTables_paginate { color:#fff !important; }
+
+    .dataTables_wrapper .dataTables_filter input,
+    .dataTables_wrapper .dataTables_length select{
+      background: var(--field); color:#fff; border:1px solid var(--card-border); border-radius:8px;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button{
+      color:#fff !important; border:1px solid var(--card-border); background:transparent;
+    }
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+      background: rgba(255,255,255,.08) !important; color:#fff !important; border-color: var(--card-border-2) !important;
+    }
+
+    /* ==== Cabeçalho da tabela em amarelo (ouro) ==== */
+    #tabelaMece thead th{
+      background-color:#d6b36b !important;
+      color:#0d130f !important;
+      border-color:rgba(13,19,15,.25) !important;
+    }
+    div.dataTables_scrollHead thead th,
+    table.dataTable.fixedHeader-floating thead th{
+      background-color:#d6b36b !important;
+      color:#0d130f !important;
+      border-color:rgba(13,19,15,.25) !important;
+    }
+    #tabelaMece thead th.sorting,
+    #tabelaMece thead th.sorting_asc,
+    #tabelaMece thead th.sorting_desc,
+    div.dataTables_scrollHead thead th.sorting,
+    div.dataTables_scrollHead thead th.sorting_asc,
+    div.dataTables_scrollHead thead th.sorting_desc{
+      background-color:#d6b36b !important; color:#0d130f !important;
+    }
+    #tabelaMece thead th:hover,
+    div.dataTables_scrollHead thead th:hover{
+      background-color:#caa458 !important;
+    }
+
+    /* Destaque de seleção (caso use) */
+    .selected-row{ background-color:#fff3cd !important; color:#0d130f !important; font-weight:700; }
+    tr.selected-row td{ background-color:#fff3cd !important; color:#0d130f !important; }
+  </style>
+</head>
+<body>
+
+  <!-- ====== SVG LOGO (para <use>) ====== -->
+  <svg style="display:none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="nx-logo">
+    <g fill="currentColor">
+      <path d="M128 236c-49.5-18.2-82-49.6-92.7-66.8C28 156.1 24 141.9 24 120.4V56.5c0-4.2 3-7.9 7.1-8.7 35-6.9 64.5-18.9 89.7-35.9a10 10 0 0 1 10.4 0c25.2 17 54.7 29 89.7 35.9 4.1.8 7.1 4.5 7.1 8.7v63.9c0 21.5-4 35.7-11.3 48.8C210 186.4 177.5 217.8 128 236Z"/>
+      <path fill="#0f2a1e" d="M128 206l-34-92h22l12 34 12-34h22l-34 92z"/>
+      <rect x="124" y="76" width="8" height="42" fill="#0f2a1e"/>
+      <path fill="#0f2a1e" d="M128 42l7.8 16 17.6 2.2-12.8 11.6 3.6 17.9L128 80l-16.2 9.7 3.6-17.9-12.8-11.6 17.6-2.2 7.8-16z"/>
+      <path fill="#0f2a1e" d="M92 120a36 36 0 0 1 16-30l6 9a24 24 0 0 0-10 21h-12Zm-18 0a54 54 0 0 1 24-45l6 9a42 42 0 0 0-18 36h-12Zm-18 0a72 72 0 0 1 32-60l6 9a60 60 0 0 0-27 51h-11Z"/>
+      <path fill="#0f2a1e" d="M164 120h-12a24 24 0 0 0-10-21l6-9a36 36 0 0 1 16 30Zm18 0h-12a42 42 0 0 0-18-36l6-9a54 54 0 0 1 24 45Zm18 0h-11a60 60 0 0 0-27-51l6-9a72 72 0 0 1 32 60Z"/>
+    </g>
+  </svg>
+
+  <!-- ====== HEADER ====== -->
+  <header class="nx-header py-3">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="brand-mini">
+        <svg viewBox="0 0 256 256"><use href="#nx-logo"></use></svg>
+        <span>NEXUS</span>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <div class="user-chip">
+          <i class="fa-solid fa-user-shield"></i>
+          {{ session['perfil'] }}
+        </div>
+        <a href="{{ url_for('logout') }}" class="btn btn-logout">
+          <i class="fas fa-sign-out-alt me-1"></i> Sair
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== CONTEÚDO ====== -->
+  <main class="shell">
+
+    <div class="page-title">
+      <h4>(FIDECE) – Ficha Descritiva de Eventos de Comunicação Estratégica</h4>
+
+      <div class="action-stack">
+        <a href="{{ url_for('menu') }}" class="btn-ghost">
+          <i class="fas fa-arrow-left me-1"></i> Início
+        </a>
+        <button id="btn-pdf" class="btn-gold" type="button">
+          <i class="fas fa-file-pdf me-1"></i> Gerar PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- ====== FILTROS ====== -->
+    <form method="get" action="{{ url_for('form_resultado_fidece') }}" class="filter-section">
+      <div class="row align-items-end">
+        <div class="col-lg-3 col-md-6 mb-3">
+          <label class="filter-label">Rede</label>
+          {% if tipo_usuario in [1, 2, 3, 11, 12, 13] %}
+            <input type="hidden" name="cidades" value="{{ cidades_selecionadas[0] }}">
+            <span class="badge nx fs-6 p-2">{{ cidades_selecionadas[0] }}</span>
+          {% else %}
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="checkAllRedes">
+              <label class="form-check-label" for="checkAllRedes"><strong>Todas as Redes</strong></label>
+            </div>
+            <hr class="my-2">
+            <div class="d-flex gap-3">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="cidades" value="Rio de Janeiro" {% if 'Rio de Janeiro' in cidades_selecionadas %}checked{% endif %}>
+                <label class="form-check-label">RJ</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="cidades" value="Espirito Santo" {% if 'Espirito Santo' in cidades_selecionadas %}checked{% endif %}>
+                <label class="form-check-label">ES</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="cidades" value="Minas Gerais" {% if 'Minas Gerais' in cidades_selecionadas %}checked{% endif %}>
+                <label class="form-check-label">MG</label>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="col-lg-8 col-md-6 mb-3">
+          <label class="filter-label">Mês</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="checkAllMeses">
+            <label class="form-check-label" for="checkAllMeses"><strong>Todos os Meses</strong></label>
+          </div>
+          <hr class="my-2">
+          <div class="d-flex flex-wrap gap-2">
+            {% for numero, nome in [
+              ('01', 'Jan'), ('02', 'Fev'), ('03', 'Mar'), ('04', 'Abr'),
+              ('05', 'Mai'), ('06', 'Jun'), ('07', 'Jul'), ('08', 'Ago'),
+              ('09', 'Set'), ('10', 'Out'), ('11', 'Nov'), ('12', 'Dez')
+            ] %}
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="meses" value="{{ numero }}" id="mes_{{ numero }}" {% if numero in meses_selecionados %}checked{% endif %}>
+              <label class="form-check-label" for="mes_{{ numero }}">{{ nome }}</label>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="col-lg-1 mb-3 text-end">
+          <button type="submit" class="btn-gold w-100">
+            <i class="fas fa-filter me-1"></i> Filtrar
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- ====== TABELA ====== -->
+    <div class="table-responsive" style="overflow-x:auto;">
+      <table id="tabelaMece" class="table table-bordered table-striped align-middle">
+        <thead class="text-center">
+          <tr>
+            <th>Ação</th>
+            <th>Nr. Pauta - REDE</th>
+            <th>Datas</th>
+            <th>Ações de Comunicação Estratégia</th>
+            <th>Vetor a Atuar</th>
+            <th>Produtos</th>
+            <th>Resultados</th>
+            <th>Autor Fidece</th>
+            <th>Considerações da REDE</th>
+            <th>Manifestação do Vetor</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fidece in fidece_lista %}
+          <tr>
+            <td>
+              {% if fidece.status == 1 %}
+              <a href="{{ url_for('form_feedback', mpce_id=fidece.mpce_id) }}" class="btn btn-sm btn-gold w-100 mb-1">Gerar Feeback</a>
+              {% endif %}
+              {% if fidece.status == 2 %}
+              <a href="{{ url_for('form_manifestacao', mpce_id=fidece.mpce_id) }}" class="btn btn-sm btn-outline w-100 mb-1">Manifestação da OM</a>
+              {% endif %}
+              {% if session['tipo_usuario'] in [4, 5, 11, 12, 13] %}
+              <a href="{{ url_for('excluir_fidece', id=fidece.mpce_id) }}" class="btn btn-sm btn-danger text-white w-100 mb-1"
+                 onclick="return confirm('Deseja realmente excluir esta Fidece?');">
+                Excluir Fidece
+              </a>
+              <a href="{{ url_for('editar_fidece', id=fidece.mpce_id) }}" class="btn btn-sm btn-info text-white w-100 mb-1">
+                Editar Fidece
+              </a>
+              {% endif %}
+            </td>
+            <td>{{ fidece.nome_rede }}</td>
+            <td>{{ (fidece.datas or '').replace(';', '<br>') | safe }}</td>
+            <td>{{ (fidece.acao_descricao or '').replace(';', '<br>') | safe }}</td>
+            <td>{{ fidece.vetor_descricao }}</td>
+            <td>
+              <button type="button" class="btn btn-outline btn-sm btn-visualizar_produto" data-mpce="{{ fidece.mpce_id }}">
+                Visualizar Produtos
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-outline btn-sm btn-visualizar" data-mpce="{{ fidece.mpce_id }}">
+                Visualizar Avaliação
+              </button>
+            </td>
+            <td>{{ fidece.militar }}</td>
+            <td>{{ fidece.consideracoes_cce }}</td>
+            <td>{{ fidece.manifestacao_om }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="d-flex justify-content-between mt-4">
+      <button type="button" class="btn btn-outline" onclick="history.back()">
+        <i class="fa-solid fa-arrow-left-long me-1"></i> Voltar
+      </button>
+    </div>
+  </main>
+
+  <!-- ====== MODAIS ====== -->
+  <div class="modal fade" id="modalVisualizarAvaliacao" tabindex="-1" aria-labelledby="modalVisualizarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header nx">
+          <h5 class="modal-title" id="modalVisualizarLabel">Avaliações dos Resultados do Evento</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body bg-white p-4">
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped align-middle">
+              <thead class="text-center">
+                <tr>
+                  <th>Descrição</th>
+                  <th>Avaliação</th>
+                  <th>Motivo</th>
+                </tr>
+              </thead>
+              <tbody id="avaliacoes-tbody">
+                <!-- conteúdo será preenchido via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer nx">
+          <button type="button" class="btn btn-outline" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalVisualizarProdutos" tabindex="-1" aria-labelledby="modalProdutosLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header nx">
+          <h5 class="modal-title" id="modalProdutosLabel">Produtos do Evento</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body bg-white p-4">
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped align-middle">
+              <thead class="text-center">
+                <tr>
+                  <th>Descrição</th>
+                  <th>Link</th>
+                </tr>
+              </thead>
+              <tbody id="produtos-tbody">
+                <!-- conteúdo será preenchido via JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer nx">
+          <button type="button" class="btn btn-outline" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SCRIPTS ====== -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // DataTable principal
+    $(document).ready(function () {
+      window.dtMece = $('#tabelaMece').DataTable({
+        scrollX: true,
+        scrollCollapse: true,
+        fixedHeader: true,
+        orderCellsTop: true,
+        ordering: true,
+        order: [],
+        columnDefs: [
+          { targets: 0, orderable: false, width: "70px" },
+          { targets: 1, width: "120px" },
+          { targets: 2, width: "120px" },
+          { targets: 3, orderable: false, width: "200px" },
+          { targets: 4, orderable: false, width: "200px" },
+          { targets: 5, orderable: false, width: "120px" },
+          { targets: 6, orderable: false, width: "120px" },
+          { targets: 7, orderable: false, width: "160px" },
+          { targets: 8, orderable: false, width: "200px" },
+          { targets: 9, orderable: false, width: "200px" }
+        ],
+        language: { url: "https://cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json" }
+      });
+    });
+
+    // Visualizar Avaliações
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.btn-visualizar').forEach(button => {
+        button.addEventListener('click', async () => {
+          const mpceId = button.getAttribute('data-mpce');
+          const response = await fetch(`/avaliacoes/${mpceId}`);
+          const avaliacoes = await response.json();
+
+          const tbody = document.getElementById('avaliacoes-tbody');
+          tbody.innerHTML = '';
+
+          if (!avaliacoes.length) {
+            tbody.innerHTML = '<tr><td colspan="3" class="text-center">Nenhuma avaliação encontrada.</td></tr>';
+          } else {
+            avaliacoes.forEach(a => {
+              tbody.innerHTML += `<tr><td>${a.descricao}</td><td>${a.nm_avaliacao}</td><td>${a.motivo}</td></tr>`;
+            });
+          }
+
+          new bootstrap.Modal(document.getElementById('modalVisualizarAvaliacao')).show();
+        });
+      });
+    });
+
+    // Visualizar Produtos
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.btn-visualizar_produto').forEach(button => {
+        button.addEventListener('click', async () => {
+          const mpceId = button.getAttribute('data-mpce');
+          const response = await fetch(`/produtos/${mpceId}`);
+          const produtos = await response.json();
+
+          const tbody = document.getElementById('produtos-tbody');
+          tbody.innerHTML = '';
+
+          if (!produtos.length) {
+            tbody.innerHTML = '<tr><td colspan="2" class="text-center">Nenhum produto encontrado.</td></tr>';
+          } else {
+            produtos.forEach(prod => {
+              const link = prod.link ? `<a href="${prod.link}" target="_blank" rel="noopener">${prod.link}</a>` : '';
+              tbody.innerHTML += `<tr><td>${prod.descricao}</td><td>${link}</td></tr>`;
+            });
+          }
+
+          new bootstrap.Modal(document.getElementById('modalVisualizarProdutos')).show();
+        });
+      });
+    });
+
+    // Selecionar todos (meses/rede)
+    document.addEventListener('DOMContentLoaded', () => {
+      const allMeses = document.getElementById('checkAllMeses');
+      if (allMeses) {
+        allMeses.addEventListener('change', function () {
+          document.querySelectorAll('input[name="meses"]').forEach(cb => cb.checked = this.checked);
+        });
+      }
+      const allRedes = document.getElementById('checkAllRedes');
+      if (allRedes) {
+        allRedes.addEventListener('change', function () {
+          document.querySelectorAll('input[name="cidades"]').forEach(cb => cb.checked = this.checked);
+        });
+      }
+    });
+
+    // Gerar PDF com os filtros/ordenação atuais
+    document.getElementById('btn-pdf').addEventListener('click', function () {
+      const params = new URLSearchParams();
+
+      // Redes
+      const redes = [...document.querySelectorAll('input[name="cidades"]:checked')].map(el => el.value);
+      if (redes.length) params.append('rede', redes.join(','));
+
+      // Meses (mapa para nomes)
+      const mesesMap = {
+        "01":"Janeiro","02":"Fevereiro","03":"Março","04":"Abril",
+        "05":"Maio","06":"Junho","07":"Julho","08":"Agosto",
+        "09":"Setembro","10":"Outubro","11":"Novembro","12":"Dezembro"
+      };
+      const mesesSelecionados = [...document.querySelectorAll('input[name="meses"]:checked')].map(el => mesesMap[el.value]);
+      if (mesesSelecionados.length) params.append('mes', mesesSelecionados.join(','));
+
+      // Ordenação atual do DataTables
+      if (window.dtMece) {
+        const order = dtMece.order();
+        if (order && order.length) {
+          const [colIndex, dir] = order[0];
+          // (0=Ação é não-ordenável; começamos de 1)
+          const map = {
+            1: 'nome_rede',
+            2: 'menor_data',
+            3: 'acoes',
+            4: 'vetor_descricao',
+            7: 'militar',
+            8: 'consideracoes_cce',
+            9: 'manifestacao_om',
+          };
+          const field = map[colIndex];
+          if (field) params.append('order_by', `${field}:${dir}`);
+        }
+      }
+
+      const url = `/gerar_pdf_fidece?${params.toString()}`;
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+</html>

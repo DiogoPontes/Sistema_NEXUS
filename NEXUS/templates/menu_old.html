@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS CML</title>
+
+    <!-- FONTES E ICONES QUE USEI, SE QUISER ALTERAR ICONE ACESSA O SITE E VÊ O QUE PREFERE ULTILIZAR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        :root {
+            --primary-bg: #2c3e50;
+            --secondary-bg: #3e67b1;
+            --card-bg: #ffffff;
+            --text-light: #ecf0f1;
+            --text-dark: #2c3e50;
+            --text-muted: #bdc3c7;
+            --accent-color: #3498db;
+            --body-bg: #f4f7f9;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background-color: var(--body-bg);
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        .menu-container {
+            max-width: 800px;
+            margin: 15px auto;
+            background: linear-gradient(145deg, var(--secondary-bg), var(--primary-bg));
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo-frame {
+            width: 120px;
+            height: 120px;
+            background-color: var(--card-bg);
+            border-radius: 50%;
+            margin: 0 auto 30px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 3px solid var(--body-bg);
+        }
+
+        .logo-frame img {
+            max-width: 75px;
+            height: auto;
+        }
+
+        .title-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .menu-title {
+            color: var(--text-light);
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 900;
+            font-size: 2.8rem;
+            margin-bottom: 1px;
+            text-shadow: none;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle-1, .subtitle-2, .subtitle-3 {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .subtitle-1 {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .subtitle-2 {
+            color: #d6ff00;
+            margin-bottom: -5px;
+            font-weight: 800;
+            font-size: 2.5rem;
+        }
+
+        .subtitle-3 {
+            color: #d6ff00;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .subtitle-4 {
+            color: #d6ff00;
+            font-style: italic;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .menu-card {
+            background-color: var(--card-bg);
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 28px rgba(44, 62, 80, 0.2);
+            border-color: var(--accent-color);
+        }
+
+        .menu-card:active {
+            transform: translateY(0px) scale(1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .menu-card .card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--accent-color), var(--primary-bg));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .menu-card:hover .card-icon {
+             background: linear-gradient(45deg, #ff5f6d, #ffc371);
+            -webkit-background-clip: text;
+        }
+
+        .menu-card .card-text {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* --- AQUI É O RODAPÉ TENENTE😃👍 --- */
+        .footer-full-width {
+            background-color: var(--primary-bg);
+            padding: 25px 0;
+            color: var(--text-muted);
+        }
+        
+        .footer-full-width .footer-text {
+            text-align: center;
+            font-size: 0.9rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400;
+           
+        }
+    </style>
+</head>
+<body>
+    <!-- barra do usuário logado -->
+    <header class="footer-full-width mt-0">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="perfil-logado">
+                <i class="fa fa-user"></i>  {{ session['perfil'] }}
+            </div>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger btn-sm">Sair</a>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="menu-container">
+
+                <!--aqui pode alterar a logo para diretório em pasta ou em link, coloquei o do CML de teste-->
+                <div class="logo-frame">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/CML.png/250px-CML.png" alt="Logo CML AQUI✌😁">
+                    <!--<img src="imagens/SECTI.png" alt="Logo CML AQUI✌😁">-->
+                    <!--<div class="text-muted">[Testando Area da logo 😃👍]</div>-->
+                </div>
+
+                <div class="title-section">
+                    <h1 class="menu-title">Comando Militar do Leste</h1>
+                    <p class="subtitle-1">Seção de Tecnologia da Informação</p>
+                    <p class="subtitle-2">Nexus-CML</p>
+                    <p class="subtitle-3">Sistema Integrado de Comunicação Estratégica do CML</p>
+                    <p class="subtitle-4">Versão 1.0</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-md-6">
+                        <a href="{{ url_for('home') }}" class="menu-card">
+                            <i class="fas fa-file-alt card-icon"></i>
+                            <span class="card-text">Formulário MPCE</span>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <a href="{{ url_for('tabela_mpce') }}" class="menu-card">
+                            <i class="fas fa-table card-icon"></i>
+                            <span class="card-text">Tabela MPCE</span>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <a href="{{ url_for('form_resultado_fidece') }}" class="menu-card">
+                            <i class="fas fa-table-list card-icon"></i>
+                            <span class="card-text">Tabela FIDECE</span>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <a href="{{ url_for('metrica_numero_eventos') }}" class="menu-card">
+                            <i class="fas fa-chart-pie card-icon"></i>
+                            <span class="card-text">Métricas</span>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+
+    <!--aqui é o rodapé-->
+    <footer class="footer-full-width">
+        <div class="container">
+            <div class="footer-text">
+                Desenvolvido pela Seção de Tecnologia da Informação - CML
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <!-- FONTES E ICONES QUE USEI, SE QUISER ALTERAR ICONE ACESSA O SITE E VÊ O QUE PREFERE ULTILIZAR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
+    <meta charset="UTF-8">
+    <title>Formulário de Eventos - CML</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+
+        body {
+            background-color: #3962A5;
+        }
+
+
+        .form-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: rgba(255, 255, 255, 0.70); /* cor + transparência */
+
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+
+        .form-label span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- barra do usuário logado -->
+    <header class="footer-full-width mt-0">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="perfil-logado">
+                <i class="fa fa-user"></i>  {{ session['perfil'] }}
+            </div>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger btn-sm">Sair</a>
+        </div>
+    </header>
+    <div class="form-container">
+        <h4 class="mb-4">Avaliação do Resultado</h4>
+
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label fw-bold">Descrição do Resultado:</label>
+                <p class="form-control bg-light">{{ resultado.descricao }}</p>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Nota:</label><br>
+                {% for tipo in tipos_avaliacao %}
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="tipo_avaliacao_cd" id="nota{{ tipo.cd_avaliacao }}"
+                           value="{{ tipo.cd_avaliacao }}" {% if tipo.cd_avaliacao==resultado.tipo_avaliacao_cd %}checked{% endif %} required>
+                    <label class="form-check-label" for="nota{{ tipo.cd_avaliacao }}">{{ tipo.nm_avaliacao }}</label>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Motivo:</label>
+                <textarea name="motivo" class="form-control" rows="4" required>{{ resultado.motivo or '' }}</textarea>
+            </div>
+
+            {% if erro %}
+            <div class="alert alert-danger">{{ erro }}</div>
+            {% endif %}
+
+            <div class="d-flex justify-content-between">
+                <a href="{{ url_for('fidece1', cd_mece=resultado.mpce_id) }}" class="btn btn-secondary">Voltar</a>
+                <button type="submit" class="btn btn-primary">Salvar Avaliação</button>
+            </div>
+        </form>
+    </div>
+    <!--aqui é o rodapé-->
+    <footer class="footer-full-width">
+        <div class="container">
+            <div class="footer-text">
+                Desenvolvido pela Seção de Tecnologia da Informação - CML
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - NEXUS</title>
+
+  <!-- Bootstrap e Font Awesome (opcional para ícones) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <!-- Fonte robusta (semelhante à da proposta) -->
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-hero:#0f2a1e;         /* verde militar escuro (fundo) */
+      --bg-hero-2:#0c2219;       /* leve variação p/ gradiente */
+      --gold:#d6b36b;            /* dourado da marca */
+      --gold-strong:#caa458;     /* dourado hover */
+      --text:#e9edd6;            /* texto claro neutro */
+      --field:#0f2a1e;           /* fundo dos inputs (escuro) */
+      --field-border:#2f4a3f;    /* borda discreta */
+      --field-focus:#4b7d66;     /* foco */
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:24px;
+    }
+
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 700px at 50% -200px, var(--bg-hero-2), transparent 70%),
+        radial-gradient(900px 600px at -200px 100%, #0b2018, transparent 60%),
+        radial-gradient(900px 600px at 120% 80%, #0b2018, transparent 60%),
+        var(--bg-hero);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      color: var(--text);
+      display:flex; align-items:center; justify-content:center;
+    }
+
+    .login-shell{
+      width:min(880px, 92vw);
+      padding:56px 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+      border: 1px solid rgba(214,179,107,.18);
+      backdrop-filter: blur(2px);
+    }
+
+    .brand{
+      display:flex; flex-direction:column; align-items:center; gap:18px; margin-bottom:22px;
+    }
+    .brand h1{
+      font-family: "Russo One", sans-serif;
+      font-weight: 900; letter-spacing:.08em;
+      color: var(--gold);
+      font-size: clamp(36px, 6vw, 64px);
+      margin:6px 0 0;
+      text-transform: uppercase;
+    }
+    .brand .subtitle{
+      color: var(--gold);
+      font-size: clamp(14px, 2.2vw, 18px);
+      font-weight: 600;
+      text-align:center;
+      opacity:.95;
+    }
+
+    /* Form card */
+    .login-card{
+      width:min(520px, 100%);
+      margin: 28px auto 0;
+      padding: 28px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(214,179,107,.14);
+      border-radius: 16px;
+    }
+
+    label{font-weight:600; color: var(--text)}
+    .form-control{
+      background: var(--field);
+      border: 1px solid var(--field-border);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .form-control::placeholder{color:#a9b6b0}
+    .form-control:focus{
+      border-color: var(--field-focus);
+      box-shadow: 0 0 0 .2rem rgba(75,125,102,.25);
+      background: var(--field);
+      color: var(--text);
+    }
+
+    .btn-gold{
+      background: var(--gold);
+      color: #0d130f;
+      font-weight: 800;
+      border:none;
+      padding: 12px 14px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      transition: transform .12s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn-gold:hover{
+      background: var(--gold-strong);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(198,160,86,.25);
+      color:#0b0f0c;
+    }
+
+    .footer{
+      margin-top:26px;
+      text-align:center;
+      font-size: 13px;
+      color:#c9d3cd;
+      opacity:.85;
+    }
+
+    /* Logo SVG dimensiona bem */
+    .logo-wrap{
+      width:110px; height:auto;
+      color: var(--gold);
+      filter: drop-shadow(0 6px 20px rgba(0,0,0,.25));
+    }
+
+    @media (max-width:520px){
+      .login-shell{ padding:36px 18px}
+      .login-card{ padding:20px}
+    }
+  </style>
+</head>
+<body>
+
+  <main class="login-shell">
+    <!-- LOGO + TÍTULOS -->
+    <div class="brand">
+      <!-- SVG do escudo com torre de comunicação + ondas + estrela -->
+      <svg class="logo-wrap" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" aria-label="Logotipo NEXUS">
+        <!-- Escudo -->
+        <path fill="currentColor" d="M128 236c-49.5-18.2-82-49.6-92.7-66.8C28 156.1 24 141.9 24 120.4V56.5c0-4.2 3-7.9 7.1-8.7 35-6.9 64.5-18.9 89.7-35.9a10 10 0 0 1 10.4 0c25.2 17 54.7 29 89.7 35.9 4.1.8 7.1 4.5 7.1 8.7v63.9c0 21.5-4 35.7-11.3 48.8C210 186.4 177.5 217.8 128 236Z"/>
+        <!-- Torre -->
+        <path fill="#0f2a1e" d="M128 206l-34-92h22l12 34 12-34h22l-34 92z"/>
+        <!-- Poste central -->
+        <rect x="124" y="76" width="8" height="42" fill="#0f2a1e"/>
+        <!-- Estrela -->
+        <path fill="#0f2a1e" d="M128 42l7.8 16 17.6 2.2-12.8 11.6 3.6 17.9L128 80l-16.2 9.7 3.6-17.9-12.8-11.6 17.6-2.2 7.8-16z"/>
+        <!-- Ondas esquerda -->
+        <path fill="#0f2a1e" d="M92 120a36 36 0 0 1 16-30l6 9a24 24 0 0 0-10 21h-12Zm-18 0a54 54 0 0 1 24-45l6 9a42 42 0 0 0-18 36h-12Zm-18 0a72 72 0 0 1 32-60l6 9a60 60 0 0 0-27 51h-11Z"/>
+        <!-- Ondas direita -->
+        <path fill="#0f2a1e" d="M164 120h-12a24 24 0 0 0-10-21l6-9a36 36 0 0 1 16 30Zm18 0h-12a42 42 0 0 0-18-36l6-9a54 54 0 0 1 24 45Zm18 0h-11a60 60 0 0 0-27-51l6-9a72 72 0 0 1 32 60Z"/>
+      </svg>
+
+      <h1>NEXUS</h1>
+      <div class="subtitle">Sistema de Comunicação Estratégica para Forças Militares</div>
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <div class="login-card">
+      <form method="POST" action="{{ url_for('login') }}">
+        <div class="mb-3">
+          <label for="usuario" class="form-label">Nome do Usuário</label>
+          <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ex.: jm.silva" required>
+        </div>
+        <div class="mb-2">
+          <label for="senha" class="form-label">Senha</label>
+          <input type="password" class="form-control" id="senha" name="senha" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-gold w-100 mt-3">
+          <i class="fa-solid fa-shield-keyhole me-2"></i> Entrar
+        </button>
+      </form>
+    </div>
+
+    
+  </main>
+
+</body>
+</html>

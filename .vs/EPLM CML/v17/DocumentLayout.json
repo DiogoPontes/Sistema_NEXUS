@@ -1,0 +1,194 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\routes\\tabelas.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|solutionrelative:EPLM_CML\\routes\\tabelas.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\conexao.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|solutionrelative:EPLM_CML\\conexao.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\templates\\menu.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|solutionrelative:EPLM_CML\\templates\\menu.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\templates\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|solutionrelative:EPLM_CML\\templates\\login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\templates\\form_editar_mpce.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|solutionrelative:EPLM_CML\\templates\\form_editar_mpce.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\templates\\form_mece.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|solutionrelative:EPLM_CML\\templates\\form_mece.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\templates\\form_fidece.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|solutionrelative:EPLM_CML\\templates\\form_fidece.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\routes\\formularios.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|solutionrelative:EPLM_CML\\routes\\formularios.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\routes\\relatorios.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|solutionrelative:EPLM_CML\\routes\\relatorios.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\static\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2814813A-DCAD-4A53-8A3F-72F1252F95B2}|EPLM CML.pyproj|solutionrelative:EPLM_CML\\static\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "conexao.py",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\conexao.py",
+              "RelativeDocumentMoniker": "EPLM_CML\\conexao.py",
+              "ToolTip": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\conexao.py",
+              "RelativeToolTip": "EPLM_CML\\conexao.py",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAjAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHeSURBVDhPpVMxa1NRFP7ebZLSlgaltNpSVCySRUxL0NAh4FJpHWpxcZAUBEPG/AKHDsVBN5eGrCnoYKCDoDiUCKKBjtZBUZtJ2ojYJr40ue\u002B\u002B47k3VzD0hQr94OOed8853/k47z2cCETk2NAgk8mQDQMhhFjK5/Mb9vEotIDruoEsFovEzVvZbPaWLTcQ9uxCpVLp4l\u002Bk0\u002BlEPB5/wIPm7RVC9uxCMpm0UTdKpRKi0WiCQy3wUt8FCvw7VSNxbRapG4voDwucGgyjXC7bzH84ePt1HysbH/GhWoNstzA1OoSFhZuxQqFg8sfu4FutAd\u002BT8KSEYm7v7GJ0YnLClgYLaAcjU9N4Vx9Dda8OBz7OjwywSNsIXY39vEL7TxWpxv2eO3hWHUZ19xc8ti25UdvXzdpNWH0BDj8JiLOrPXfweOu9mRgRhOXUEPr7IiBfYeacB9HaBNRvQH4f6\u002BlgMERwGxJP7grEoq9shj9Uz\u002BVGpmIi4vXcwdzlcePgzLAuZPiSGw869Jg\u002Biw1Mvw50oLGcuoh71y8h1HwB1Js8UfFLnwScNnBhdYVLWsy1IwK5XM5GHaw9uu0LeSCMddZA32lz7zjOQxMcByK1SPU3O/Rjnai2fkjNz8/5L77TyQJ/AJc67LNf3QeWAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-08-06T18:25:03.569Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "form_fidece.html",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\templates\\form_fidece.html",
+              "RelativeDocumentMoniker": "EPLM_CML\\templates\\form_fidece.html",
+              "ToolTip": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\templates\\form_fidece.html",
+              "RelativeToolTip": "EPLM_CML\\templates\\form_fidece.html",
+              "ViewState": "AQIAAJYAAAAAAAAAAAAAALMAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-12T19:08:32.155Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "formularios.py",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\routes\\formularios.py",
+              "RelativeDocumentMoniker": "EPLM_CML\\routes\\formularios.py",
+              "ToolTip": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\routes\\formularios.py",
+              "RelativeToolTip": "EPLM_CML\\routes\\formularios.py",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAAAHgAAAAAAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHeSURBVDhPpVMxa1NRFP7ebZLSlgaltNpSVCySRUxL0NAh4FJpHWpxcZAUBEPG/AKHDsVBN5eGrCnoYKCDoDiUCKKBjtZBUZtJ2ojYJr40ue\u002B\u002B47k3VzD0hQr94OOed8853/k47z2cCETk2NAgk8mQDQMhhFjK5/Mb9vEotIDruoEsFovEzVvZbPaWLTcQ9uxCpVLp4l\u002Bk0\u002BlEPB5/wIPm7RVC9uxCMpm0UTdKpRKi0WiCQy3wUt8FCvw7VSNxbRapG4voDwucGgyjXC7bzH84ePt1HysbH/GhWoNstzA1OoSFhZuxQqFg8sfu4FutAd\u002BT8KSEYm7v7GJ0YnLClgYLaAcjU9N4Vx9Dda8OBz7OjwywSNsIXY39vEL7TxWpxv2eO3hWHUZ19xc8ti25UdvXzdpNWH0BDj8JiLOrPXfweOu9mRgRhOXUEPr7IiBfYeacB9HaBNRvQH4f6\u002BlgMERwGxJP7grEoq9shj9Uz\u002BVGpmIi4vXcwdzlcePgzLAuZPiSGw869Jg\u002Biw1Mvw50oLGcuoh71y8h1HwB1Js8UfFLnwScNnBhdYVLWsy1IwK5XM5GHaw9uu0LeSCMddZA32lz7zjOQxMcByK1SPU3O/Rjnai2fkjNz8/5L77TyQJ/AJc67LNf3QeWAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-08-11T18:57:02.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "form_mece.html",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\templates\\form_mece.html",
+              "RelativeDocumentMoniker": "EPLM_CML\\templates\\form_mece.html",
+              "ToolTip": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\templates\\form_mece.html",
+              "RelativeToolTip": "EPLM_CML\\templates\\form_mece.html",
+              "ViewState": "AQIAAI0AAAAAAAAAAAAAAI0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-11T17:40:33.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "form_editar_mpce.html",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\templates\\form_editar_mpce.html",
+              "RelativeDocumentMoniker": "EPLM_CML\\templates\\form_editar_mpce.html",
+              "ToolTip": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\templates\\form_editar_mpce.html",
+              "RelativeToolTip": "EPLM_CML\\templates\\form_editar_mpce.html",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAAAHEAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-11T17:31:05.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "login.html",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\templates\\login.html",
+              "RelativeDocumentMoniker": "EPLM_CML\\templates\\login.html",
+              "ToolTip": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\templates\\login.html",
+              "RelativeToolTip": "EPLM_CML\\templates\\login.html",
+              "ViewState": "AQIAAMEAAAAAAAAAAAAWwFkAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-08T14:04:13.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "menu.html",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\templates\\menu.html",
+              "RelativeDocumentMoniker": "EPLM_CML\\templates\\menu.html",
+              "ToolTip": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\templates\\menu.html",
+              "RelativeToolTip": "EPLM_CML\\templates\\menu.html",
+              "ViewState": "AQIAAM8AAAAAAAAAAAAAAPYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-08-08T13:56:47.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "relatorios.py",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\routes\\relatorios.py",
+              "RelativeDocumentMoniker": "EPLM_CML\\routes\\relatorios.py",
+              "ToolTip": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\routes\\relatorios.py",
+              "RelativeToolTip": "EPLM_CML\\routes\\relatorios.py",
+              "ViewState": "AQIAAMsAAAAAAAAAAAAuwCYBAAA6AAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHeSURBVDhPpVMxa1NRFP7ebZLSlgaltNpSVCySRUxL0NAh4FJpHWpxcZAUBEPG/AKHDsVBN5eGrCnoYKCDoDiUCKKBjtZBUZtJ2ojYJr40ue\u002B\u002B47k3VzD0hQr94OOed8853/k47z2cCETk2NAgk8mQDQMhhFjK5/Mb9vEotIDruoEsFovEzVvZbPaWLTcQ9uxCpVLp4l\u002Bk0\u002BlEPB5/wIPm7RVC9uxCMpm0UTdKpRKi0WiCQy3wUt8FCvw7VSNxbRapG4voDwucGgyjXC7bzH84ePt1HysbH/GhWoNstzA1OoSFhZuxQqFg8sfu4FutAd\u002BT8KSEYm7v7GJ0YnLClgYLaAcjU9N4Vx9Dda8OBz7OjwywSNsIXY39vEL7TxWpxv2eO3hWHUZ19xc8ti25UdvXzdpNWH0BDj8JiLOrPXfweOu9mRgRhOXUEPr7IiBfYeacB9HaBNRvQH4f6\u002BlgMERwGxJP7grEoq9shj9Uz\u002BVGpmIi4vXcwdzlcePgzLAuZPiSGw869Jg\u002Biw1Mvw50oLGcuoh71y8h1HwB1Js8UfFLnwScNnBhdYVLWsy1IwK5XM5GHaw9uu0LeSCMddZA32lz7zjOQxMcByK1SPU3O/Rjnai2fkjNz8/5L77TyQJ/AJc67LNf3QeWAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-08-07T17:04:28.999Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "style.css",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\static\\css\\style.css",
+              "RelativeDocumentMoniker": "EPLM_CML\\static\\css\\style.css",
+              "ToolTip": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\static\\css\\style.css",
+              "RelativeToolTip": "EPLM_CML\\static\\css\\style.css",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAiwE8AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-08-07T19:00:07.725Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "tabelas.py",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\routes\\tabelas.py",
+              "RelativeDocumentMoniker": "EPLM_CML\\routes\\tabelas.py",
+              "ToolTip": "C:\\xampp\\htdocs\\EPLM CML\\EPLM CML\\EPLM_CML\\routes\\tabelas.py",
+              "RelativeToolTip": "EPLM_CML\\routes\\tabelas.py",
+              "ViewState": "AQIAAIAAAAAAAAAAAAAAAJYAAAAMAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHeSURBVDhPpVMxa1NRFP7ebZLSlgaltNpSVCySRUxL0NAh4FJpHWpxcZAUBEPG/AKHDsVBN5eGrCnoYKCDoDiUCKKBjtZBUZtJ2ojYJr40ue\u002B\u002B47k3VzD0hQr94OOed8853/k47z2cCETk2NAgk8mQDQMhhFjK5/Mb9vEotIDruoEsFovEzVvZbPaWLTcQ9uxCpVLp4l\u002Bk0\u002BlEPB5/wIPm7RVC9uxCMpm0UTdKpRKi0WiCQy3wUt8FCvw7VSNxbRapG4voDwucGgyjXC7bzH84ePt1HysbH/GhWoNstzA1OoSFhZuxQqFg8sfu4FutAd\u002BT8KSEYm7v7GJ0YnLClgYLaAcjU9N4Vx9Dda8OBz7OjwywSNsIXY39vEL7TxWpxv2eO3hWHUZ19xc8ti25UdvXzdpNWH0BDj8JiLOrPXfweOu9mRgRhOXUEPr7IiBfYeacB9HaBNRvQH4f6\u002BlgMERwGxJP7grEoq9shj9Uz\u002BVGpmIi4vXcwdzlcePgzLAuZPiSGw869Jg\u002Biw1Mvw50oLGcuoh71y8h1HwB1Js8UfFLnwScNnBhdYVLWsy1IwK5XM5GHaw9uu0LeSCMddZA32lz7zjOQxMcByK1SPU3O/Rjnai2fkjNz8/5L77TyQJ/AJc67LNf3QeWAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-08-07T15:57:20.546Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
